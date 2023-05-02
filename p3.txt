@@ -1,0 +1,32 @@
+data()
+head(mtcars)
+x<-nrow(mtcars)
+y<-ncol(mtcars)
+print("no of rows")
+print(x)
+print("no of columns")
+print(y)
+z<-data.frame(mtcars)
+auto=0
+manual=0
+for(i in 1:x){
+  if(z[i,9]==0)
+    auto<-auto+1 
+  else 
+    manual<-manual+1
+}
+print(auto)
+print(manual)
+if(auto > manual)print("automatic cars more")else print("manual cars more")
+
+hp<-z[,4]
+wt<-z[,6]
+scatter.smooth(hp,wt,span=2/3,degree = 1,family = c("symmetric","gaussian"))
+am<-as.integer(z$am)
+cyl<-as.integer(z$cyl)
+vs<-as.integer(z$vs)
+newmtc<-data.frame(am,cyl,vs)
+print(newmtc)
+subset(z,cyl<5)
+
+
